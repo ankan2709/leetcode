@@ -10,14 +10,17 @@ def threeSum(arr):
         right = len(arr) - 1
 
         while left < right:
-            if a + arr[left] + arr[right] == 0:
+            three_sum = a + arr[left] + arr[right]
+
+            if three_sum > 0:
+                right -= 1
+            elif three_sum < 0:
+                left += 1
+            else:
                 res.append([a, arr[left], arr[right]])
                 left += 1
-                right -= 1
-            elif a + arr[left] + arr[right] > 0:
-                right -= 1
-            elif a + arr[left] + arr[right] < 0:
-                left += 1
+                while nums[left] == nums[left-1]:
+                    left += 1
     return res
 
 
